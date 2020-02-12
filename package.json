@@ -1,0 +1,47 @@
+{
+  "name": "foodie-api",
+  "version": "1.0.0",
+  "description": "REST API for Foodie APP",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "nodemon app.ts",
+    "start": "tsc && node dist/app",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluechiptony/foodie-api.git"
+  },
+  "keywords": [],
+  "author": "Anthony Egwu",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "axios": "^0.19.2",
+    "bcrypt": "^3.0.8",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "keys-to-camelcase": "^1.0.2",
+    "knex": "^0.20.9",
+    "mailgun-js": "^0.22.0",
+    "nanoid": "^2.1.11",
+    "nanoid-dictionary": "^3.0.0",
+    "pg": "^7.18.1",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
