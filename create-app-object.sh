@@ -6,4 +6,5 @@ touch src/handlers/$1/$1.ts
 touch src/handlers/$1/$1-data-access.ts
 touch src/handlers/$1/$1-validator.ts
 touch src/handlers/$1/$1-adapter.ts
+touch src/handlers/$1/$1-handler.ts
 touch src/handlers/$1/$1.test.ts
