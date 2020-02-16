@@ -2,10 +2,8 @@ import express, { Application } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
-import userRoutes from "./src/routes/user";
-import authenticationRoutes from "./src/routes/authentication";
-
-import { generateHashforPasswordText, comparePassword } from "./src/utilities/helpers/authentication";
+import userRoutes from "./routes/user";
+import authenticationRoutes from "./routes/authentication";
 
 dotenv.config();
 const applicationName = process.env.APP_NAME;
@@ -22,13 +20,4 @@ foodie.use("/auth", authenticationRoutes);
 
 foodie.listen(port, async () => {
   console.log(`${applicationName} running and listening on port ${port}`);
-  try {
-    let password = "pastext";
-    let hash = await generateHashforPasswordText("password");
-    console.log(password);
-    console.log(hash);
-    console.log(await comparePassword(password, hash));
-  } catch (error) {
-    console.log(error);
-  }
 });

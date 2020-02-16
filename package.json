@@ -2,10 +2,11 @@
   "name": "foodie-api",
   "version": "1.0.0",
   "description": "REST API for Foodie APP",
-  "main": "app.ts",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.ts",
-    "start": "tsc && node dist/app",
+    "start": "npm run clean && tsc && node dist/app",
+    "clean": "rm -rf dist",
     "test": "jest"
   },
   "repository": {
@@ -17,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
+    "@types/nanoid": "^2.1.0",
     "axios": "^0.19.2",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
