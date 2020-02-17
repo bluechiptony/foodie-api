@@ -4,7 +4,7 @@
   "description": "REST API for Foodie APP",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.ts",
+    "dev": "nodemon src/app.ts",
     "start": "npm run clean && tsc && node dist/app",
     "clean": "rm -rf dist",
     "test": "jest"
