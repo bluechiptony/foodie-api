@@ -44,10 +44,9 @@ describe("validate numeric property", () => {
     }).toThrow(new Error("field label must be provided"));
   });
 });
+
 describe("validate string property", () => {
-  let Stringnumber = "0828327382328";
   let number = 2137634734;
-  let alphabet = "JackJon";
   let label = "field label";
 
   it("it should throw error where there is invalid data", () => {
@@ -60,5 +59,13 @@ describe("validate string property", () => {
     expect(() => {
       validateRequiredStingProperty(label, null);
     }).toThrow(new Error("field label must be provided"));
+  });
+});
+
+describe("Validate email address", () => {
+  it("Should throw error if email is invalid", () => {
+    expect(() => {
+      validateEmailAddress("anthonyegwu");
+    }).toThrow("Invalid email address");
   });
 });
