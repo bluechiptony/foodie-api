@@ -1,4 +1,4 @@
-describe("Meal module tests", () => {
+describe("Validation module  tests", () => {
   it("Should return true", () => {
     expect(true).toBeTruthy();
   });
