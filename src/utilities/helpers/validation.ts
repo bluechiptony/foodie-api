@@ -2,29 +2,35 @@ import { isValidEmail, isValidPhoneNumber } from "./helpers";
 
 export const validateRequiredStingProperty = (label: string, property: any) => {
   if (property == null || property == undefined || property == "undefined") {
-    throw new Error(`${label} must be provided.`);
+    throw new Error(`${label} must be provided`);
   }
   if (typeof property != "string") {
-    throw new Error(`${label} has an invalid data type.`);
+    throw new Error(`${label} is of an invalid data type`);
   }
 };
 
 export const validateRequiredNumericProperty = (label: string, property: any) => {
-  property = +property;
-  if (property == null || property == undefined || property == "undefined") {
-    throw new Error(`${label} must be provided.`);
+  let newProp = +property;
+
+  if (Number.isNaN(newProp) && property !== undefined) {
+    throw new Error(`${label} is of an invalid data type`);
   }
-  if (typeof property != "number") {
-    throw new Error(`${label} has an invalid data type.`);
+
+  if (property == null || property == undefined || property == "undefined") {
+    throw new Error(`${label} must be provided`);
+  }
+
+  if (typeof property !== "number" && isNaN(property)) {
+    throw new Error(`${label} is of an invalid data type`);
   }
 };
 
 export const validateIfArray = (label: string, arrayProspect: any) => {
   if (arrayProspect == null || arrayProspect == undefined || arrayProspect == "undefined") {
-    throw new Error(`${label} must be provided.`);
+    throw new Error(`${label} must be provided`);
   } else {
     if (!(Array.isArray(arrayProspect) && arrayProspect.length > 0)) {
-      throw new Error(`${label} must be provided.`);
+      throw new Error(`${label} must be provided`);
     }
   }
 };
