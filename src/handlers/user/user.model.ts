@@ -5,8 +5,8 @@ export class User {
   lastName!: string;
   emailAddress!: string;
   phoneNumber!: string;
-  createdDate!: string;
-  updatedDate!: string;
+  createdDate!: Date;
+  updatedDate!: Date;
   createdBy!: string;
   updatedBy!: string;
 }
