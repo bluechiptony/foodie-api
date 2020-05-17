@@ -1,11 +1,8 @@
 let accountTypes = ["ADMINISTRATOR", "VENDOR", "CUSTOMER", "SUPPORT"];
 let tableName = "users";
-exports.up = function(knex) {
-  return knex.schema.createTable(tableName, table => {
-    table
-      .increments("user_id")
-      .primary()
-      .notNullable();
+exports.up = function (knex) {
+  return knex.schema.createTable(tableName, (table) => {
+    table.increments("user_id").primary().notNullable();
 
     table.string("user_code", 10).notNullable();
     table.string("first_name", 30).notNullable();
@@ -16,11 +13,11 @@ exports.up = function(knex) {
     table
       .enu("account_type", accountTypes, {
         useNative: true,
-        enumName: "account_type"
+        enumName: "account_type",
       })
       .notNullable();
-    table.timestamp("created_date").notNullable(new Date());
-    table.timestamp("updated_date").notNullable(new Date());
+    table.date("created_date").notNullable(new Date());
+    table.date("updated_date").notNullable(new Date());
     table.text("created_by").nullable();
     table.text("updated_by").nullable();
 
@@ -32,6 +29,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTable(tableName);
 };

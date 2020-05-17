@@ -1,10 +1,7 @@
 let tableName = "authentication";
-exports.up = function(knex) {
-  return knex.schema.createTable(tableName, table => {
-    table
-      .increments("auth_id")
-      .primary()
-      .notNullable();
+exports.up = function (knex) {
+  return knex.schema.createTable(tableName, (table) => {
+    table.increments("auth_id").primary().notNullable();
     table.string("user_code", 20).notNullable();
     table.string("email_address", 30).notNullable();
     table.text("phone_number", 20).nullable();
@@ -12,7 +9,7 @@ exports.up = function(knex) {
       .enu("account_type", null, {
         useNative: true,
         existingType: true,
-        enumName: "account_type"
+        enumName: "account_type",
       })
       .notNullable();
     table.boolean("has_social").notNullable();
@@ -33,6 +30,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTable(tableName);
 };

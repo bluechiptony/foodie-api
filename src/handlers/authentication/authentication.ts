@@ -1,23 +1,22 @@
 export enum Role {
   ADMINISTRATOR,
   SUPPORT,
-  FOODIE
+  FOODIE,
 }
 
-export class AuthenticationProfile {
-  id!: number;
-  authCode!: string;
-  emailAddress!: string;
-  password!: string;
-  role!: Role;
-  createdDate!: number;
-  updatedDate!: number;
-  createdby!: number;
-  updatedBy!: number;
+export interface AuthenticationProfile {
+  id?: number;
+  authCode?: string;
+  emailAddress: string;
+  password?: string;
+  role: Role;
+  createdDate?: Date;
+  updatedDate?: Date;
+  createdby?: string;
+  updatedBy?: string;
+}
 
-  constructor() {}
-
-  getEmailAddress = () => {
-    return this.emailAddress;
-  };
+export interface LoginProfile {
+  emailAddress: string;
+  password: string;
 }

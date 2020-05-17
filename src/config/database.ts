@@ -1,22 +1,20 @@
-const Knex = require("knex");
+import * as dotenv from "dotenv";
+import * as knex from "knex";
+import { Config } from "knex";
 
-let databaseHost = process.env.DATABASE_HOST;
-let databaseName = process.env.DATABASE_NAME;
-let databaseUser = process.env.DATABASE_USER;
-let databasePassword = process.env.DATABASE_PASSWORD;
-
-export const databaseConfig = {
-  clieng: "pg",
-  connecttion: {
-    host: databaseHost,
-    database: databaseName,
-    user: databaseUser,
-    password: databasePassword
-  }
+dotenv.config();
+const databaseConfig: Config = {
+  client: process.env.KNEX_DATABASE_CLIENT,
+  connection: {
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE_NAME,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+  },
 };
 
-const defaultDatabase = Knex(databaseConfig);
-
-// const defaultDatabase:Knex = Knex
-
-export default defaultDatabase;
+export class Connection {
+  public knex(): knex {
+    return knex.default(databaseConfig);
+  }
+}
